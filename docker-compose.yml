@@ -1,0 +1,14 @@
+version: "2"
+
+services:
+  apacheauth0:
+    image: auth0proxy
+    environment:
+      auth0domain: stuff.eu.auth0.com #my auth0 domain
+      auth0clientid: oQPvf7aVhKrX345345qQA40BeOim5ic #auth0client id
+      #Remember to add this url in auth0's list of callback urls and append /auth/, for example https://192.168.99.100:5000/auth/
+      auth0clientsecret: faqMDfef7pg6h6324598345U_v01234312488XJ1-jdREzyxqerOh #auth0client secret
+      thiscontainerurl: https://192.168.99.100:5000/ #Since I'm publishing to port 5000, this will be the url to hit in my browser
+      proxyto: http://www.vg.no/ #The site I want to forward requests to
+    ports:
+      - "5000:443"
