@@ -11,6 +11,7 @@ see the docker-compose file in this repo for an example of setting these up.
 Make sure your auth0 client allows callbacks from `https://<container_and_port>/auth/`
 
 Envvars you need, in this example my container will be accessed on `https://192.168.99.100:5000/`
+(the keys/secrets are just examples, so hack away)
 ```yaml
 auth0domain: stuff.eu.auth0.com #my auth0 domain
 auth0clientid: oQPvf7aVhKrX345345qQA40BeOim5ic #auth0client id
