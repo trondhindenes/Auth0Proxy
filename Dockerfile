@@ -20,7 +20,7 @@ EXPOSE 80
 WORKDIR /home
 #The next 2 lines just creates a self-signed cert to run apache on
 COPY sslgen.sh /home/sslgen.sh
-RUN ./sslgen.sh
+RUN ./sslgen.sh;exit 0
 COPY configure_and_run.py /home/configure_and_run.py
 EXPOSE 443
 #COPY 000-default.conf /etc/apache2/sites-enabled/000-default.conf
