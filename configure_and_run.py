@@ -15,6 +15,7 @@ config = '''
         OIDCProviderTokenEndpoint https://<<auth0domain>>/oauth/token
         OIDCProviderTokenEndpointAuth client_secret_post
         OIDCProviderUserInfoEndpoint https://<<auth0domain>>/userinfo
+        OIDCSessionMaxDuration 0
 
         OIDCClientID <<auth0clientid>>
         OIDCClientSecret <<auth0clientsecret>>
