@@ -1,5 +1,4 @@
 ### Auth0Proxy
-
 A general-purpose docker image for creating an auth0-based reverse proxy, based on apache and openidc
 
 # What does it do:
