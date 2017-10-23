@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 from __future__ import print_function # Only Python 2.x
 import os
 import subprocess
