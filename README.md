@@ -10,6 +10,11 @@ All settings are controlled by env vars,
 see the docker-compose file in this repo for an example of setting these up.   
 Make sure your auth0 client allows callbacks from `https://<container_and_port>/auth/`
 
+# SSL
+Authproxy will auto-generate self-signed certificates and use these. This can be overridden by supplying the two `CERT`   
+environment variables described below. This allows you to inject "real" certificates instead of using the auto-generated ones.
+
+
 Envvars you need, in this example my container will be accessed on `https://192.168.99.100:5000/`
 (the keys/secrets are just examples, so hack away)
 ```yaml
@@ -19,6 +24,8 @@ auth0clientid: oQPvf7aVhKrX345345qQA40BeOim5ic #auth0client id
 auth0clientsecret: faqMDfef7pg6h6324598345U_v01234312488XJ1-jdREzyxqerOh #auth0client secret
 thiscontainerurl: https://192.168.99.100:5000/ #Since I'm publishing to port 5000, this will be the url to hit in my browser. Remember the trailing slash
 proxyto: http://www.vg.no/ #The site I want to forward requests to. Remember the trailing slash
+CERT_FILE_PATH: the path of the ssl certifikate See the above section regarding certs!!
+CERT_KEY_PATH: the path of the ssl cert key. See the above section regarding certs!!
 ```
 
 # Known bugs
