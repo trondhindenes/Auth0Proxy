@@ -28,8 +28,8 @@ config = '''
 
         SSLEngine on
         SSLProxyEngine on
-        SSLCertificateFile /home/auth0proxy.cert
-        SSLCertificateKeyFile /home/auth0proxy.key
+        SSLCertificateFile <<cert_file>>
+        SSLCertificateKeyFile <<cert_key>>
         ServerAdmin webmaster@localhost
         DocumentRoot /var/www/html
 
@@ -67,19 +67,24 @@ auth0_client_id = os.environ['auth0clientid']
 auth0_client_secret = os.environ['auth0clientsecret']
 this_url = os.environ['thiscontainerurl']
 proxy_to = os.environ['proxyto']
+cert_file = os.environ.get('CERT_FILE_PATH', '/home/auth0proxy.cert')
+cert_key = os.environ.get('CERT_KEY_PATH', '/home/auth0proxy.key')
+
 
 config = config.replace('<<auth0domain>>', auth0_domain)
 config = config.replace('<<auth0clientid>>', auth0_client_id)
 config = config.replace('<<auth0clientsecret>>', auth0_client_secret)
 config = config.replace('<<thiscontainerurl>>', this_url)
 config = config.replace('<<proxyto>>', proxy_to)
+config = config.replace('<<cert_file>>', cert_file)
+config = config.replace('<<cert_key>>', cert_key)
 
 text_file = open("/etc/apache2/sites-enabled/000-default.conf", "w")
 text_file.write(config)
 text_file.close()
 
-cmd = '/usr/sbin/apachectl -DFOREGROUND'
-execute(cmd)
+#cmd = '/usr/sbin/apachectl -DFOREGROUND'
+#execute(cmd)
 
 
 
