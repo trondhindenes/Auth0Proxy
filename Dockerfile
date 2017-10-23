@@ -27,4 +27,4 @@ COPY configure_and_run.py /home/configure_and_run.py
 EXPOSE 443
 #COPY 000-default.conf /etc/apache2/sites-enabled/000-default.conf
 ENTRYPOINT ["/usr/bin/dumb-init", "--"]
-CMD ["bash", "-c", "./configure_and_run.py && exec /usr/sbin/apachectl -DFOREGROUND"]
+CMD ["bash", "-c", "./configure_and_run.py && exec /usr/sbin/apachectl -e info -DFOREGROUND"]
