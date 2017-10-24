@@ -18,6 +18,7 @@ config = '''
         OIDCProviderTokenEndpointAuth client_secret_post
         OIDCProviderUserInfoEndpoint https://<<auth0domain>>/userinfo
         OIDCSessionMaxDuration 0
+        OIDCSessionInactivityTimeout <<session_timeout>>
 
         OIDCClientID <<auth0clientid>>
         OIDCClientSecret <<auth0clientsecret>>
@@ -71,7 +72,7 @@ this_url = os.environ['thiscontainerurl']
 proxy_to = os.environ['proxyto']
 cert_file = os.environ.get('CERT_FILE_PATH', '/home/auth0proxy.cert')
 cert_key = os.environ.get('CERT_KEY_PATH', '/home/auth0proxy.key')
-
+session_timeout = os.environ.get('OIDC_SESSION_TIMEOUT_SECONDS', '300')
 
 config = config.replace('<<auth0domain>>', auth0_domain)
 config = config.replace('<<auth0clientid>>', auth0_client_id)
@@ -80,6 +81,8 @@ config = config.replace('<<thiscontainerurl>>', this_url)
 config = config.replace('<<proxyto>>', proxy_to)
 config = config.replace('<<cert_file>>', cert_file)
 config = config.replace('<<cert_key>>', cert_key)
+config = config.replace('<<session_timeout>>', session_timeout)
+
 
 text_file = open("/etc/apache2/sites-enabled/000-default.conf", "w")
 text_file.write(config)

@@ -25,6 +25,7 @@ thiscontainerurl: https://192.168.99.100:5000/ #Since I'm publishing to port 500
 proxyto: http://www.vg.no/ #The site I want to forward requests to. Remember the trailing slash
 CERT_FILE_PATH: the path of the ssl certifikate See the above section regarding certs!!
 CERT_KEY_PATH: the path of the ssl cert key. See the above section regarding certs!!
+OIDC_SESSION_TIMEOUT_SECONDS: defaults to 300. See https://github.com/pingidentity/mod_auth_openidc/blob/master/auth_openidc.conf#L443
 ```
 
 # Known bugs
