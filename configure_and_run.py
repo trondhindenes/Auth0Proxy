@@ -36,8 +36,8 @@ config = '''
         ServerAdmin webmaster@localhost
         DocumentRoot /var/www/html
 
-        ErrorLog ${APACHE_LOG_DIR}/error.log
         CustomLog ${APACHE_LOG_DIR}/access.log combined
+        ErrorLog /dev/stderr
 
         #Some sites have large payloads
         LimitRequestFieldSize 32768
